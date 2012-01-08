@@ -1,0 +1,390 @@
+/* Common
+================================================== */
+a {
+	text-decoration: none;
+}
+.roundCorner (@radius: 2px) {
+	-webkit-border-bottom-right-radius: @radius;
+	-webkit-border-bottom-left-radius: @radius;
+	-moz-border-radius-bottomright: @radius;
+	-moz-border-radius-bottomleft: @radius;
+	border-bottom-right-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+@brown: #432B00;
+
+/* Header
+================================================== */
+header {
+	margin-top: 10px;
+	nav {
+		margin-top: 60px;
+		float: left;
+		ul.head {
+			/*this is the trick*/
+			overflow: hidden;
+			font-size: 12px;
+			width: 570px;
+			margin: 0 auto;
+			font-weight: bold;
+			> li {
+				display: inline;
+				float: left;
+				border-bottom: 4px solid #432B00;
+			}
+			> li:after {
+				content: " |";
+			}
+			> li:last-child:after {
+				content: "";
+			}
+			li ul {
+				text-align:center;
+				font-weight: normal;
+				background: #432B00;
+				margin: 0;
+				padding: 5px;
+				visibility: hidden;
+				position: absolute;
+				font-size: 11px;
+				width: 66px;
+				.roundCorner(3px);
+				a {
+					color: white;
+				}
+			}
+		}
+	}
+}
+/* Slide Block
+================================================== */
+.slideBlock {
+	margin: 40px 0 20px 0;
+
+	/* Tab
+	================================================== */
+	.tabs {
+		text-transform: uppercase;
+		margin:0;
+	}
+	.tabs-content {
+		background: white;
+		width: 273px;
+		li {
+			padding: 15px;
+		}
+		#findTour {
+			* {
+				margin: 0px;
+			}
+			fieldset {
+				margin-bottom: 5px;
+			}
+			label[for="startDate"] {
+				float: left;
+				margin-right: 5px;
+			}
+			input[name="startDate"] {
+				height: 10px;
+				width: 157px;
+			}
+			button {
+				margin-left: 150px;
+			}
+		}
+		#findTour > fieldset >label[for="radioForeign"] {
+			float: left;
+			margin-right: 10px;
+		}
+		#booking {
+			text-align: center;
+		}
+		span,  p {
+			font-size: 12px;
+		}
+	}
+
+	li.restaurant {
+		img {
+			float: left;
+			margin-right: 5px;
+		}
+		.content {
+			padding-top: 34px;
+			text-transform: uppercase;
+			font-size: 11px;
+			h6 {
+				font-size: 18px;
+			}
+		}
+	}
+	a {
+		display: block;
+		height: 79px;
+	}
+	a:hover {
+			background-position: center bottom;
+	}
+	.dulich {
+		background: transparent url(../images/dulich-button.png) center top no-repeat;
+	}
+	.thuexe {
+		background: transparent url(../images/thuexe-button.png) center top no-repeat;
+	}
+	.nhahang {
+		background: transparent url(../images/nhahang-button.png) center top no-repeat;
+	}
+	.xaydung {
+		background: transparent url(../images/xaydung-button.png) center top no-repeat;
+	}
+	/* Slide: almost the same css as slidesjs
+	================================================== */
+	.slideContainer {
+		width: 580px;
+		/*padding: 10px;*/
+		margin: 0 auto;
+		position: relative;
+		z-index: 0;
+
+		#slideContainer {
+			width: 600px;
+			height: 350px;
+			margin-left: 40px;
+			position: relative;
+
+			#ribbon {
+				position:absolute;
+				top:-3px;
+				left:-15px;
+				z-index:500;
+			}
+
+			#frame {
+				position:absolute;
+				z-index:0;
+				width:739px;
+				height:341px;
+				top:-3px;
+				left:-80px;
+			}
+
+			/*
+				Slideshow
+			*/
+
+			#slides {
+				position:absolute;
+				top:15px;
+				left:4px;
+				z-index:100;
+			}
+
+			/*
+				Slides container
+				Important:
+				Set the width of your slides container
+				Set to display none, prevents content flash
+			*/
+
+			.slides_container {
+				width:570px;
+				overflow:hidden;
+				position:relative;
+				display:none;
+			}
+
+			/*
+				Each slide
+				Important:
+				Set the width of your slides
+				If height not specified height will be set by the slide content
+				Set to display block
+			*/
+
+			.slides_container div.slide {
+				width:570px;
+				height:270px;
+				display:block;
+			}
+
+
+			/*
+				Next/prev buttons
+			*/
+
+			#slides .next,#slides .prev {
+				position:absolute;
+				top:107px;
+				left:-39px;
+				width:24px;
+				height:43px;
+				display:block;
+				z-index:101;
+			}
+
+			#slides .next {
+				left:585px;
+			}
+
+			/*
+				Pagination
+			*/
+
+			.pagination {
+				margin:26px auto 0;
+				width:100px;
+			}
+
+			.pagination li {
+				float:left;
+				margin:0 1px;
+				list-style:none;
+			}
+
+			.pagination li a {
+				display:block;
+				width:12px;
+				height:0;
+				padding-top:12px;
+				background-image:url(../img/pagination.png);
+				background-position:0 0;
+				float:left;
+				overflow:hidden;
+			}
+
+			.pagination li.current a {
+				background-position:0 -12px;
+			}
+
+			/*
+				Caption
+			*/
+
+			.caption {
+				z-index:500;
+				position:absolute;
+				bottom:-35px;
+				left:0;
+				height:30px;
+				padding:5px 20px 0 20px;
+				background:#000;
+				background:rgba(0,0,0,.5);
+				width:540px;
+				font-size:1.3em;
+				line-height:1.33;
+				color:#fff;
+				border-top:1px solid #000;
+				text-shadow:none;
+			}
+		}
+	}
+}
+
+/* Feature tour
+================================================== */
+.featureBlock {
+	margin-bottom: 20px;
+	.feature {
+		background: white;
+		.roundCorner;
+		border-bottom: 1px solid #432B00;
+		height: 333px;
+		img {
+			width:300px;
+		}
+		.content {
+			font-family: Tahoma;
+			padding: 15px;
+			span {
+				font-size: 11px;
+				font-weight: bold;
+			}
+			p {
+				margin-top: 15px;
+				font-size: 11px;
+			}
+		}
+	}
+}
+
+hr {
+	border: 4px solid #93866e;
+}
+
+/* More information
+================================================== */
+.moreInformation {
+	.holiday {
+		font-size: 12px;
+		span {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		ul {
+			margin-bottom: 20px;
+			li:before {
+				content: ">  ";
+			}
+		}
+	}
+	.tour {
+		nav {
+			font-weight: bold;
+			text-transform: uppercase;
+			ul {
+				li {
+					display: inline;
+					margin-right: 40px;
+				}
+			}
+		}
+		div {
+			img {
+				float: left;
+				border: 3px solid white;
+				margin-right: 25px;
+				-webkit-box-shadow: .2px 1px 1px 1px rgba(0, 0, 0, .2);
+				-moz-box-shadow: .2px 1px 1px 1px rgba(0, 0, 0, .2);
+				box-shadow: .2px 1px 1px 1px rgba(0, 0, 0, .2);
+			}
+			.content {
+				h6 {
+					margin-bottom: 10px;
+					font-weight: bold;
+				}
+				label {
+					float: left;
+					margin-right: 5px;
+				}
+				div {
+					margin-bottom: 5px;
+				}
+				label, div {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+/* Footer
+================================================== */
+footer {
+	margin-top: 20px;
+	h6 {
+		margin: 10px 0 10px 0;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: @brown;
+	}
+	label {
+		float: left;
+		margin-right: 5px;
+	}
+	label, div {
+		font-size: 12px;
+	}
+	div img {
+		margin-top: 10px;
+	}
+}
